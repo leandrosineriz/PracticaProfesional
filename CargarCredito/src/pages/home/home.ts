@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController ,NavParams} from 'ionic-angular';
+import { NavController ,NavParams,ToastController} from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AlertController } from 'ionic-angular';
@@ -21,13 +21,28 @@ export class HomePage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private fdb:AngularFireDatabase,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController
     ) {
 
     this.usuario=navParams.get("id");
     this.saldo=Number(navParams.get("saldo"));
     this.listaCod=new Array();
     this.CargarLista();
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'scan='+this.scannedCode+'-code_50=ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172',
+      duration: 10000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
   }
 
   UpdateSaldoBD()
@@ -90,6 +105,7 @@ export class HomePage {
     let codigo_50="ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172";
     let codigo_100="2786f4877b9091dcad7f35751bfcf5d5ea712b2f";
 
+    this.presentToast();
     if(this.scannedCode==codigo_10)
     {
       if(this.ValidarCodigoBD()){
