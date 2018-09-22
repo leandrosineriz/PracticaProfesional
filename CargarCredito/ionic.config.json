@@ -1,0 +1,7 @@
+{
+  "name": "CargaCredito",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

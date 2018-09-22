@@ -1,0 +1,15 @@
+
+
+<ion-content padding class="red">
+  <button ion-button color="danger" class="btnExit" small (click)="pop()">Salir</button>
+
+  <ion-content class="saldo">
+      <ion-item>
+          <ion-label class="labelTxt" >SALDO</ion-label>
+          <ion-label fixed class="labelSaldo">{{saldo}}</ion-label>
+        </ion-item>
+  </ion-content>
+
+  <button ion-button full icon-left class="btnScan" color="secondary" (click)="scanCode()"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
+
+</ion-content>

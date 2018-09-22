@@ -1,0 +1,7 @@
+{
+  "name": "RelevamientoVisual",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

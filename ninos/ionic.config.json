@@ -1,0 +1,7 @@
+{
+  "name": "Niños",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
